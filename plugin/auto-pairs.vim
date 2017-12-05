@@ -78,6 +78,10 @@ if !exists('g:AutoPairsSmartQuotes')
   let g:AutoPairsSmartQuotes = 1
 endif
 
+if !exists('gAutoPairsOnlyWhiteSpace')
+    let g:AutoPairsOnlyWhiteSpace = 0
+endif
+
 " 7.4.849 support <C-G>U to avoid breaking '.'
 " Issue talk: https://github.com/jiangmiao/auto-pairs/issues/3
 " Vim note: https://github.com/vim/vim/releases/tag/v7.4.849
@@ -218,6 +222,11 @@ function! AutoPairsInsert(key)
     if n % 2 == 1
       return a:key
     endif
+  endif
+
+  " Ignore auto close if set and current character is not whitespace
+  if AutoPairsOnlyWhitespace && current_char =~ '\v\S'
+      return a:key
   endif
 
   return open.close.s:Left

@@ -257,6 +257,11 @@ Options
 
         Work with FlyMode, insert the key at the Fly Mode jumped postion
 
+*   g:AutoPairsOnlyWhitespace
+
+        Default: 0
+        Set to 1 to skip autopairs unless the following character is whitespace.
+
 *   g:AutoPairsMoveCharacter
 
         Default: "()[]{}\"'"
