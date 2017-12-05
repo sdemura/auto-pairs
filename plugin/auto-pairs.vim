@@ -225,7 +225,7 @@ function! AutoPairsInsert(key)
   endif
 
   " Ignore auto close if set and current character is not whitespace
-  if AutoPairsOnlyWhitespace && current_char =~ '\v\S'
+  if g:AutoPairsOnlyWhitespace && current_char =~ '\v\S'
       return a:key
   endif
 
